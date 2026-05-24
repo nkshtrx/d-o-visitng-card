@@ -31,7 +31,8 @@ body {
   overflow:hidden;
   transition:background .5s ease;
 }
-body.mocha    { background:#6B3416; }
+body.rust     { background:#7B3018; }
+body.sandy    { background:#C06030; }
 body.crimson  { background:#1E0606; }
 
 /* ── BLOBS ── */
@@ -88,36 +89,63 @@ body.crimson  { background:#1E0606; }
   animation:d3 14s ease-in-out infinite alternate;
 }
 
-/* Mocha blobs */
-.bm1 {
+/* Warm Rust blobs */
+.br1 {
+  width:70vmax; height:70vmax; opacity:0;
+  background:radial-gradient(circle,#D06030 0%,transparent 65%);
+  top:-30%; left:-20%;
+  animation:d1 18s ease-in-out infinite alternate;
+  transition:opacity .5s;
+}
+.br2 {
+  width:60vmax; height:60vmax; opacity:0;
+  background:radial-gradient(circle,#A84020 0%,transparent 65%);
+  bottom:-25%; right:-15%;
+  animation:d2 22s ease-in-out infinite alternate;
+  transition:opacity .5s;
+}
+.br3 {
+  width:50vmax; height:50vmax; opacity:0;
+  background:radial-gradient(circle,#C07040 0%,transparent 65%);
+  top:30%; left:40%;
+  animation:d3 14s ease-in-out infinite alternate;
+  transition:opacity .5s;
+}
+/* Sandy Copper blobs */
+.bs1 {
   width:70vmax; height:70vmax; opacity:0;
   background:radial-gradient(circle,#E09060 0%,transparent 65%);
   top:-30%; left:-20%;
   animation:d1 18s ease-in-out infinite alternate;
   transition:opacity .5s;
 }
-.bm2 {
+.bs2 {
   width:60vmax; height:60vmax; opacity:0;
-  background:radial-gradient(circle,#C87828 0%,transparent 65%);
+  background:radial-gradient(circle,#C87040 0%,transparent 65%);
   bottom:-25%; right:-15%;
   animation:d2 22s ease-in-out infinite alternate;
   transition:opacity .5s;
 }
-.bm3 {
+.bs3 {
   width:50vmax; height:50vmax; opacity:0;
-  background:radial-gradient(circle,#D06040 0%,transparent 65%);
+  background:radial-gradient(circle,#D08050 0%,transparent 65%);
   top:30%; left:40%;
   animation:d3 14s ease-in-out infinite alternate;
   transition:opacity .5s;
 }
-body.mocha .b1, body.mocha .b2, body.mocha .b3, body.mocha .b4{ opacity:0; }
-body.mocha .bm1{ opacity:.55; }
-body.mocha .bm2{ opacity:.50; }
-body.mocha .bm3{ opacity:.45; }
+body.rust   .b1, body.rust   .b2, body.rust   .b3, body.rust   .b4{ opacity:0; }
+body.rust   .br1{ opacity:.55; }
+body.rust   .br2{ opacity:.50; }
+body.rust   .br3{ opacity:.45; }
+body.sandy  .b1, body.sandy  .b2, body.sandy  .b3, body.sandy  .b4{ opacity:0; }
+body.sandy  .bs1{ opacity:.55; }
+body.sandy  .bs2{ opacity:.50; }
+body.sandy  .bs3{ opacity:.45; }
 
 /* Crimson theme */
 body.crimson .b1, body.crimson .b2, body.crimson .b3, body.crimson .b4{ opacity:0; }
-body.crimson .bm1, body.crimson .bm2, body.crimson .bm3{ opacity:0; }
+body.crimson .br1, body.crimson .br2, body.crimson .br3{ opacity:0; }
+body.crimson .bs1, body.crimson .bs2, body.crimson .bs3{ opacity:0; }
 body.crimson .bc1{ opacity:.60; }
 body.crimson .bc2{ opacity:.45; }
 body.crimson .bc3{ opacity:.38; }
@@ -199,12 +227,23 @@ body.crimson .bc3{ opacity:.38; }
   border-radius:32px 32px 0 0;
   background:linear-gradient(
     to bottom,
-    rgba(247,196,181,0.93) 0%,
-    rgba(244,172,178,0.82) 12%,
-    rgba(241,148,155,0.58) 32%,
-    rgba(240,110,75,0.22) 60%,
-    rgba(240,75,34,0) 100%
+    rgba(255,178,168,0.92) 0%,
+    rgba(252,148,138,0.76) 15%,
+    rgba(248,118,98,0.46) 40%,
+    rgba(244,90,58,0.18) 68%,
+    rgba(240,70,30,0) 100%
   );
+}
+.top-highlight {
+  position:absolute;
+  left:0; right:0; top:0; height:71px;
+  background:linear-gradient(
+    to bottom,
+    rgba(255,160,155,0.68) 0%,
+    rgba(252,130,118,0.36) 45%,
+    rgba(248,100,78,0) 100%
+  );
+  z-index:2; pointer-events:none;
 }
 .band1 { top:43px;  height:127px; }
 .band2 { top:136px; height:150px; }
@@ -229,11 +268,11 @@ body.crimson .bc3{ opacity:.38; }
   font-size:20px; color:#ECE4D0;
   white-space:nowrap; line-height:1;
 }
-.l-illus  { left:507px; top:29px;  }
-.l-crea   { left:39px;  top:122px; }
-.l-vis    { left:327px; top:122px; }
-.l-brand  { left:181px; top:236px; }
-.l-typo   { left:533px; top:236px; }
+.l-illus  { left:507px; top:43px;  }
+.l-crea   { left:39px;  top:136px; }
+.l-vis    { left:327px; top:136px; }
+.l-brand  { left:181px; top:250px; }
+.l-typo   { left:533px; top:250px; }
 
 /* ── NAME
    Montecatini Pro Largo SemiBold, 32.8009pt → 91px CSS
@@ -248,7 +287,7 @@ body.crimson .bc3{ opacity:.38; }
   font-weight:600; font-size:91px;
   color:#ECE4D0;
   white-space:nowrap; line-height:1;
-  letter-spacing:-0.03em;
+  letter-spacing:-0.03em; word-spacing:-0.25em;
 }
 
 /* ═══════════════════════════════════
@@ -333,7 +372,8 @@ body.crimson .bc3{ opacity:.38; }
 .swatch:hover{ transform:scale(1.25); }
 .swatch.active{ border-color:rgba(255,255,255,.6); }
 .sw-terracotta{ background:#2D1208; box-shadow:0 0 0 1px rgba(255,255,255,.25); }
-.sw-mocha     { background:#6B3416; box-shadow:0 0 0 1px rgba(255,255,255,.25); }
+.sw-rust      { background:#7B3018; box-shadow:0 0 0 1px rgba(255,255,255,.25); }
+.sw-sandy     { background:#C06030; box-shadow:0 0 0 1px rgba(255,255,255,.25); }
 .sw-crimson   { background:#1E0606; box-shadow:0 0 0 1px rgba(255,255,255,.25); }
 
 /* ── FLIP HINT ── */
@@ -357,9 +397,12 @@ body.crimson .bc3{ opacity:.38; }
   <div class="blob b2"></div>
   <div class="blob b3"></div>
   <div class="blob b4"></div>
-  <div class="blob bm1"></div>
-  <div class="blob bm2"></div>
-  <div class="blob bm3"></div>
+  <div class="blob br1"></div>
+  <div class="blob br2"></div>
+  <div class="blob br3"></div>
+  <div class="blob bs1"></div>
+  <div class="blob bs2"></div>
+  <div class="blob bs3"></div>
   <div class="blob bc1"></div>
   <div class="blob bc2"></div>
   <div class="blob bc3"></div>
@@ -371,6 +414,7 @@ body.crimson .bc3{ opacity:.38; }
     <!-- FRONT -->
     <div class="face face-front">
       <div class="inner front-inner" id="front-inner">
+        <div class="top-highlight"></div>
         <div class="band band1"></div>
         <div class="band band2"></div>
         <div class="band band3"></div>
@@ -419,8 +463,9 @@ body.crimson .bc3{ opacity:.38; }
 <!-- Background theme picker -->
 <div class="theme-picker">
   <div class="swatch sw-terracotta active" id="sw-t" onclick="setTheme('terracotta')" title="Deep Terracotta"></div>
-  <div class="swatch sw-mocha" id="sw-m" onclick="setTheme('mocha')" title="Light Mocha Brown"></div>
-  <div class="swatch sw-crimson" id="sw-c" onclick="setTheme('crimson')" title="Card Crimson"></div>
+  <div class="swatch sw-rust" id="sw-r" onclick="setTheme('rust')" title="Warm Rust"></div>
+  <div class="swatch sw-sandy" id="sw-s" onclick="setTheme('sandy')" title="Sandy Copper"></div>
+  <div class="swatch sw-crimson" id="sw-c" onclick="setTheme('crimson')" title="Deep Crimson"></div>
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
@@ -452,11 +497,12 @@ function ev(e) { e.stopPropagation(); }
 
 function setTheme(t) {
   const body = document.getElementById('body');
-  body.classList.remove('mocha','crimson');
-  ['sw-t','sw-m','sw-c'].forEach(id => document.getElementById(id).classList.remove('active'));
-  if (t === 'mocha')   { body.classList.add('mocha');   document.getElementById('sw-m').classList.add('active'); }
-  else if (t==='crimson'){ body.classList.add('crimson'); document.getElementById('sw-c').classList.add('active'); }
-  else                 { document.getElementById('sw-t').classList.add('active'); }
+  body.classList.remove('rust','sandy','crimson');
+  ['sw-t','sw-r','sw-s','sw-c'].forEach(id => document.getElementById(id).classList.remove('active'));
+  if      (t === 'rust')    { body.classList.add('rust');    document.getElementById('sw-r').classList.add('active'); }
+  else if (t === 'sandy')   { body.classList.add('sandy');   document.getElementById('sw-s').classList.add('active'); }
+  else if (t === 'crimson') { body.classList.add('crimson'); document.getElementById('sw-c').classList.add('active'); }
+  else                      { document.getElementById('sw-t').classList.add('active'); }
 }
 
 function saveContact() {
